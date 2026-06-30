@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2026 at 12:21 PM
+-- Generation Time: Jun 30, 2026 at 01:26 PM
 -- Server version: 8.0.43
 -- PHP Version: 7.3.11
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `officedb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int NOT NULL,
+  `admin_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `admin_name`, `password`) VALUES
+(1, 'Balamurugan', '$2a$10$Fq5O6BOh.fOW0vIrtY2tsuVyld.KlrbBIG9JAE6Jo6S7glT3RfGoy'),
+(2, 'Bala', '$2a$10$YbiDkEsJd7Ochgl0yOE1oOVI7sTZ7LLJODEAJCYe15Dj29M8uwGuu'),
+(3, 'Vijay', '$2a$10$EgaZf0FIlEgYhDsRjgX3vuzr8NHPW7Ip.Haf88pyl1ztjdiCRbjEi');
 
 -- --------------------------------------------------------
 
@@ -180,6 +201,12 @@ INSERT INTO `project` (`id`, `project_name`, `client_name`, `deadline`, `project
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `department`
 --
 ALTER TABLE `department`
@@ -216,6 +243,12 @@ ALTER TABLE `project`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `department`

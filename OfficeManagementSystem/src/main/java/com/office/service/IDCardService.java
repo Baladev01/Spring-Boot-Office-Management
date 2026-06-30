@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.office.dto.IDCardRequestDTO;
-import com.office.dto.IDCardResponseDTO;
+import com.office.requestdto.IDCardRequestDTO;
+import com.office.responsedto.IDCardResponseDTO;
 import com.office.entity.Employee;
 import com.office.entity.IDCard;
 import com.office.repository.EmployeeRepository;

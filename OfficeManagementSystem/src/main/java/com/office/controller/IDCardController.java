@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.office.dto.IDCardRequestDTO;
-import com.office.dto.IDCardResponseDTO;
+import com.office.requestdto.IDCardRequestDTO;
+import com.office.responsedto.IDCardResponseDTO;
 import com.office.service.IDCardService;
 
 @RestController

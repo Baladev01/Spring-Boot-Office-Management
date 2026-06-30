@@ -3,12 +3,14 @@ package com.office.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.office.common.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+import com.office.common.PageResponse;
 
-import com.office.dto.EmployeeRequestDTO;
-import com.office.dto.EmployeeResponseDTO;
+import com.office.requestdto.EmployeeRequestDTO;
+import com.office.responsedto.EmployeeResponseDTO;
 import com.office.entity.Department;
 import com.office.entity.Employee;
 import com.office.repository.DepartmentRepository;
@@ -139,11 +141,66 @@ public class EmployeeService {
     }
 
     // Pagination
-    public Page<Employee> pagination(int page,int size){
+    public ApiResponse<PageResponse<EmployeeResponseDTO>> pagination(int page, int size){
 
-        Pageable pageable = PageRequest.of(page,size);
+        ApiResponse<PageResponse<EmployeeResponseDTO>> response =
+                new ApiResponse<>();
 
-        return employeeRepository.findAll(pageable);
+        try {
+
+            Pageable pageable = PageRequest.of(page, size);
+
+            Page<Employee> employeePage = employeeRepository.findAll(pageable);
+
+            if (employeePage.isEmpty()) {
+
+                response.setStatus(404);
+                response.setMessage("Employees not found");
+                response.setData(null);
+
+                return response;
+            }
+
+            PageResponse<EmployeeResponseDTO> pageResponse = new PageResponse<>();
+
+            List<EmployeeResponseDTO> dtoList = new ArrayList<>();
+
+            for (Employee employee : employeePage.getContent()) {
+
+                EmployeeResponseDTO dto = new EmployeeResponseDTO();
+
+                dto.setId(employee.getId());
+                dto.setName(employee.getName());
+                dto.setEmail(employee.getEmail());
+                dto.setPhoneNumber(employee.getPhoneNumber());
+                dto.setStatus(employee.getStatus().name());
+                dto.setDepartmentName(employee.getDepartment().getDepartmentName());
+
+                dtoList.add(dto);
+            }
+
+            pageResponse.setContent(dtoList);
+            pageResponse.setTotalPages(employeePage.getTotalPages());
+            pageResponse.setTotalElements(employeePage.getTotalElements());
+            pageResponse.setSize(employeePage.getSize());
+            pageResponse.setNumber(employeePage.getNumber());
+            pageResponse.setFirst(employeePage.isFirst());
+            pageResponse.setLast(employeePage.isLast());
+
+            response.setStatus(200);
+            response.setMessage("Employees fetched successfully");
+            response.setData(pageResponse);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            response.setStatus(500);
+            response.setMessage(e.getMessage());
+            response.setMessage("Internal Server Error");
+            response.setData(null);
+        }
+
+        return response;
     }
 
     // Sort ASC

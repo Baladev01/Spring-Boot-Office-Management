@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.office.dto.DepartmentRequestDTO;
-import com.office.dto.DepartmentResponseDTO;
-import com.office.dto.EmployeeResponseDTO;
+import com.office.requestdto.DepartmentRequestDTO;
+import com.office.responsedto.DepartmentResponseDTO;
+import com.office.responsedto.EmployeeResponseDTO;
 import com.office.entity.Department;
 import com.office.entity.Employee;
 import com.office.repository.DepartmentRepository;

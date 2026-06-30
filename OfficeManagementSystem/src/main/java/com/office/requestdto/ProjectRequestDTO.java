@@ -1,4 +1,4 @@
-package com.office.dto;
+package com.office.requestdto;
 
 import com.office.enums.ProjectStatus;
 import lombok.Data;

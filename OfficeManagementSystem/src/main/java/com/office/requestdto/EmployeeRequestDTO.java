@@ -1,4 +1,4 @@
-package com.office.dto;
+package com.office.requestdto;
 
 import com.office.enums.EmployeeStatus;
 import lombok.Data;

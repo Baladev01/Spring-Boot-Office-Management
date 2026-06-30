@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.office.dto.ProjectRequestDTO;
-import com.office.dto.ProjectResponseDTO;
+import com.office.requestdto.ProjectRequestDTO;
+import com.office.responsedto.ProjectResponseDTO;
 import com.office.entity.Project;
 import com.office.repository.ProjectRepository;
 

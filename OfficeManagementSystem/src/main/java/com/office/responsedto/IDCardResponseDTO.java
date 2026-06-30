@@ -1,4 +1,4 @@
-package com.office.dto;
+package com.office.responsedto;
 
 import lombok.Data;
 

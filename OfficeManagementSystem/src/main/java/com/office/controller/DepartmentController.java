@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.office.dto.DepartmentRequestDTO;
-import com.office.dto.DepartmentResponseDTO;
+import com.office.requestdto.DepartmentRequestDTO;
+import com.office.responsedto.DepartmentResponseDTO;
 import com.office.service.DepartmentService;
 
 @RestController

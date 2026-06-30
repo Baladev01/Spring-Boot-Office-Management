@@ -2,14 +2,15 @@ package com.office.controller;
 
 import java.util.List;
 
+import com.office.common.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
-import com.office.dto.EmployeeRequestDTO;
-import com.office.dto.EmployeeResponseDTO;
+import com.office.requestdto.EmployeeRequestDTO;
+import com.office.responsedto.EmployeeResponseDTO;
 import com.office.entity.Employee;
 import com.office.service.EmployeeService;
+import com.office.common.PageResponse;
 
 @RestController
 @RequestMapping("/employee")
@@ -55,11 +56,11 @@ public class EmployeeController {
     }
 
     @GetMapping("/page")
-    public Page<Employee> pagination(@RequestParam int page,
-                                     @RequestParam int size){
+    public ApiResponse<PageResponse<EmployeeResponseDTO>> pagination(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
 
-        return service.pagination(page,size);
-
+        return service.pagination(page, size);
     }
 
     @GetMapping("/sort")
