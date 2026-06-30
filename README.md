@@ -1,117 +1,102 @@
-````markdown
 <div align="center">
 
 # 🏢 Office Management System
 
-### 🚀 Enterprise-Level Spring Boot REST API Project
+### 🚀 Enterprise-Level Spring Boot REST API
 
 ![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=springboot)
-![Spring Security](https://img.shields.io/badge/Spring_Security-6.x-6DB33F?style=for-the-badge&logo=springsecurity)
+![Spring Security](https://img.shields.io/badge/Spring_Security-6.x-success?style=for-the-badge&logo=springsecurity)
 ![JWT](https://img.shields.io/badge/JWT-Authentication-blue?style=for-the-badge)
-![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql)
-![Hibernate](https://img.shields.io/badge/Hibernate-ORM-59666C?style=for-the-badge&logo=hibernate)
-![Spring Data JPA](https://img.shields.io/badge/Spring_Data_JPA-Repository-success?style=for-the-badge)
-![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?style=for-the-badge&logo=swagger)
-![Maven](https://img.shields.io/badge/Maven-Build-C71A36?style=for-the-badge&logo=apachemaven)
-
-### ⭐ Secure • Fast • Scalable • RESTful API ⭐
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql)
+![Hibernate](https://img.shields.io/badge/Hibernate-ORM-brown?style=for-the-badge&logo=hibernate)
+![Swagger](https://img.shields.io/badge/Swagger-API-green?style=for-the-badge&logo=swagger)
+![Maven](https://img.shields.io/badge/Maven-Build-red?style=for-the-badge&logo=apachemaven)
 
 </div>
 
 ---
 
-# 📖 About Project
+# 📖 Project Overview
 
-The **Office Management System** is a complete **Spring Boot REST API** project developed to manage employees, departments, projects and ID cards in an organization.
+The **Office Management System** is a complete **Spring Boot REST API** application designed to manage employees, departments, projects, ID cards, and administrator authentication.
 
-This project demonstrates enterprise-level backend development concepts including:
-
-- 🚀 Spring Boot
-- 🔐 Spring Security
-- 🎫 JWT Authentication
-- 📦 Spring Data JPA
-- 🛢 Hibernate ORM
-- 🗄 MySQL Database
-- 📑 DTO Pattern
-- 🔗 JPA Relationships
-- 📄 CRUD Operations
-- 📃 Pagination
-- 🔄 Sorting
-- 📚 Swagger Documentation
+The project demonstrates real-world backend development concepts including **JWT Authentication**, **Spring Security**, **JPA Relationships**, **DTO Pattern**, **Pagination**, **Sorting**, **Swagger Documentation**, and **MySQL Integration**.
 
 ---
 
-# ✨ Project Features
+# ✨ Key Features
 
 ## 👨‍💼 Admin Module
 
-- ✅ Admin Registration
-- ✅ Admin Login
-- ✅ Secure Authentication
-- ✅ JWT Token Generation
+- 🔐 Admin Registration
+- 🔑 Secure Login
+- 🛡 JWT Authentication
+- 🔒 BCrypt Password Encryption
 
 ---
 
 ## 👨‍💻 Employee Module
 
-- ✅ Add Employee
-- ✅ Update Employee
-- ✅ Delete Employee
-- ✅ View Employee
-- ✅ Employee Status
-- ✅ Pagination
-- ✅ Sorting
+- Add Employee
+- Update Employee
+- Delete Employee
+- View Employee
+- Pagination
+- Sorting
+- Enum Status
 
 ---
 
 ## 🏢 Department Module
 
-- ✅ Create Department
-- ✅ Update Department
-- ✅ Delete Department
-- ✅ View Department
+- Create Department
+- Update Department
+- Delete Department
+- View Department
+- Department-wise Employees
 
 ---
 
 ## 📁 Project Module
 
-- ✅ Create Project
-- ✅ Update Project
-- ✅ Delete Project
-- ✅ Assign Employees
-- ✅ Project Status
+- Add Project
+- Assign Employees
+- Update Project
+- Delete Project
+- Project Status
 
 ---
 
 ## 🪪 ID Card Module
 
-- ✅ Create ID Card
-- ✅ View ID Card
-- ✅ Delete ID Card
+- Generate ID Card
+- One-to-One Mapping
+- Employee-ID Card Relationship
 
 ---
 
 # 🛠 Technologies Used
 
-| Technology | Description |
-|------------|-------------|
-| ☕ Java 17 | Programming Language |
-| 🌱 Spring Boot | Backend Framework |
-| 🔐 Spring Security | Security Framework |
-| 🎫 JWT | Authentication |
-| 🛢 Hibernate | ORM |
-| 📦 Spring Data JPA | Repository Layer |
-| 🗄 MySQL | Database |
-| 📄 Swagger | API Documentation |
-| 📚 Lombok | Boilerplate Reduction |
-| 🔨 Maven | Build Tool |
+| Category | Technology |
+|-----------|------------|
+| Language | Java 17 |
+| Framework | Spring Boot |
+| Security | Spring Security |
+| Authentication | JWT |
+| Password Encryption | BCrypt |
+| ORM | Hibernate |
+| Database | MySQL |
+| API | REST API |
+| Build Tool | Maven |
+| Documentation | Swagger |
+| Boilerplate Reduction | Lombok |
 
 ---
 
 # 📂 Project Structure
 
-```text
+```
 src
 │
 ├── config
@@ -128,169 +113,169 @@ src
 │
 ├── enums
 │
-├── filter
-│
 ├── util
 │
-└── OfficeApplication.java
+├── filter
+│
+├── common
+│
+└── OfficeApplication
 ```
 
 ---
 
 # 🗄 Database Tables
 
-```text
-📦 ADMIN
+```
+Admin
 
-📦 DEPARTMENT
+Department
 
-📦 EMPLOYEE
+Employee
 
-📦 PROJECT
+Project
 
-📦 EMPLOYEE_PROJECT
+Employee_Project
 
-📦 ID_CARD
+ID_Card
 ```
 
 ---
 
-# 🔗 Entity Relationship
+# 🔗 Entity Relationships
 
-## 🔵 One-To-Many
+## 🔹 One-to-Many
 
-```text
+```
 Department
+      │
+      │
+      ▼
+Employees
+```
+
+One Department ➜ Many Employees
+
+---
+
+## 🔹 Many-to-One
+
+```
+Employees
+      │
+      │
+      ▼
+Department
+```
+
+Many Employees ➜ One Department
+
+---
+
+## 🔹 One-to-One
+
+```
+Employee
      │
      ▼
-Employee
-Employee
-Employee
-```
-
----
-
-## 🟢 Many-To-One
-
-```text
-Employee
-     │
-     ▼
-Department
-```
-
----
-
-## 🟣 One-To-One
-
-```text
-Employee
-     ↕
  ID Card
 ```
 
+One Employee ➜ One ID Card
+
 ---
 
-## 🟠 Many-To-Many
+## 🔹 Many-to-Many
 
-```text
+```
 Employee
-    ↕
- Project
 
-Employee
-    ↕
- Project
+    ▲
+
+    │
+
+Project
 ```
+
+Many Employees ↔ Many Projects
 
 ---
 
-# 📌 Employee Status
+# 🔐 Authentication Flow
 
-```text
-🟢 ACTIVE
-
-🟡 ON_LEAVE
-
-🔴 INACTIVE
 ```
+Admin
 
----
+   │
 
-# 📌 Project Status
+Signup/Login
 
-```text
-⚪ NOT_STARTED
+   │
 
-🟡 IN_PROGRESS
+   ▼
 
-🟢 COMPLETED
-```
+Spring Security
 
----
+   │
 
-# 🔐 JWT Authentication Flow
+Authenticate User
 
-```text
-              USER
-                │
-                ▼
-      Username + Password
-                │
-                ▼
-         Login API
-                │
-                ▼
-      Spring Security
-                │
-                ▼
-Authenticate Username & Password
-                │
-                ▼
-      Generate JWT Token
-                │
-                ▼
- Client Stores JWT Token
-                │
-                ▼
-Authorization : Bearer <JWT>
-                │
-                ▼
-          JwtFilter
-                │
-                ▼
-        Extract Token
-                │
-                ▼
-          JwtUtil
-                │
-     Verify Signature
-                │
-     Extract Username
-                │
- Validate Expiration
-                │
-                ▼
- UserDetailsService
-                │
-                ▼
- Validate Username
-                │
-                ▼
-UsernamePasswordAuthenticationToken
-                │
-                ▼
+   │
+
+   ▼
+
+Generate JWT
+
+   │
+
+   ▼
+
+Client Stores JWT
+
+   │
+
+   ▼
+
+Authorization
+
+Bearer Token
+
+   │
+
+   ▼
+
+JwtFilter
+
+   │
+
+Extract Token
+
+   │
+
+Validate Token
+
+   │
+
+Extract Username
+
+   │
+
+   ▼
+
 SecurityContextHolder
-                │
-                ▼
-     Protected APIs
+
+   │
+
+   ▼
+
+Protected REST APIs
 ```
 
 ---
 
 # 🎫 JWT Structure
 
-```text
+```
 Header
 
 ↓
@@ -302,27 +287,23 @@ Payload
 Signature
 ```
 
-Example
+Payload Example
 
-```text
-eyJhbGciOiJIUzI1NiJ9
-
-.
-
-eyJzdWIiOiJhZG1pbiJ9
-
-.
-
-Signature
+```json
+{
+  "sub":"admin",
+  "iat":1751286600,
+  "exp":1751290200
+}
 ```
 
 ---
 
-# 🌐 REST APIs
+# 📑 REST APIs
 
-## 👨‍💼 Admin APIs
+## 🔐 Authentication
 
-```http
+```
 POST   /admin/signup
 
 POST   /admin/login
@@ -332,25 +313,29 @@ POST   /admin/login
 
 ## 👨‍💻 Employee APIs
 
-```http
-POST
+```
+POST   /employee/save
 
-GET
+GET    /employee/all
 
-PUT
+GET    /employee/{id}
 
-DELETE
+PUT    /employee/{id}
 
-Pagination
+DELETE /employee/{id}
 
-Sorting
+GET    /employee/page
+
+GET    /employee/sort
+
+GET    /employee/sortdesc
 ```
 
 ---
 
 ## 🏢 Department APIs
 
-```http
+```
 POST
 
 GET
@@ -364,7 +349,7 @@ DELETE
 
 ## 📁 Project APIs
 
-```http
+```
 POST
 
 GET
@@ -378,7 +363,7 @@ DELETE
 
 ## 🪪 ID Card APIs
 
-```http
+```
 POST
 
 GET
@@ -388,59 +373,109 @@ DELETE
 
 ---
 
-# 📦 DTO Flow
+# 📚 DTO Pattern
 
-```text
-Client
+### Request DTO
+
+✔ EmployeeRequestDTO
+
+✔ DepartmentRequestDTO
+
+✔ ProjectRequestDTO
+
+✔ IDCardRequestDTO
+
+✔ AdminRequestDTO
+
+✔ LoginRequestDTO
+
+---
+
+### Response DTO
+
+✔ EmployeeResponseDTO
+
+✔ DepartmentResponseDTO
+
+✔ ProjectResponseDTO
+
+✔ IDCardResponseDTO
+
+✔ AdminResponseDTO
+
+✔ LoginResponseDTO
+
+---
+
+# 📦 Generic Response
+
+```
+ApiResponse<T>
 
 ↓
 
-Request DTO
+Status
 
 ↓
 
-Entity
+Message
 
 ↓
 
-Repository
-
-↓
-
-Database
-
-↓
-
-Entity
-
-↓
-
-Response DTO
-
-↓
-
-Client
+Data
 ```
 
 ---
 
-# 🔐 Security Features
+# 📄 Pagination Response
 
-- ✅ Spring Security
-- ✅ JWT Authentication
-- ✅ Stateless Authentication
-- ✅ Authentication
-- ✅ Authorization
-- ✅ Protected REST APIs
-- ✅ BCrypt Password Encryption
-- ✅ UserDetailsService
-- ✅ SecurityContextHolder
+```
+Content
+
+Total Pages
+
+Total Elements
+
+Current Page
+
+Page Size
+
+First
+
+Last
+```
 
 ---
 
-# 📄 Swagger
+# 📊 Enum Mapping
 
-```text
+## Employee Status
+
+```
+ACTIVE
+
+INACTIVE
+
+ON_LEAVE
+```
+
+---
+
+## Project Status
+
+```
+NOT_STARTED
+
+IN_PROGRESS
+
+COMPLETED
+```
+
+---
+
+# 📖 Swagger
+
+```
 http://localhost:8080/swagger-ui/index.html
 ```
 
@@ -448,127 +483,118 @@ http://localhost:8080/swagger-ui/index.html
 
 # ▶️ How To Run
 
-```text
-1️⃣ Clone Repository
+### Clone Repository
 
-2️⃣ Open Project
+```bash
+git clone <repository-url>
+```
 
-3️⃣ Create MySQL Database
+### Open Project
 
-4️⃣ Configure application.properties
+```
+IntelliJ IDEA
+```
 
-5️⃣ Run Spring Boot Application
+### Configure Database
 
-6️⃣ Open Swagger UI
+```
+application.properties
+```
 
-7️⃣ Test REST APIs
+### Run
+
+```
+OfficeApplication.java
+```
+
+### Open Swagger
+
+```
+http://localhost:8080/swagger-ui/index.html
 ```
 
 ---
 
-# 📚 Learning Concepts
+# 🎯 Learning Concepts
 
-- ✅ Java
-- ✅ Spring Boot
-- ✅ Spring Security
-- ✅ JWT Authentication
-- ✅ REST API
-- ✅ CRUD Operations
-- ✅ DTO Pattern
-- ✅ Entity Mapping
-- ✅ JPA Relationships
-- ✅ One-To-One
-- ✅ One-To-Many
-- ✅ Many-To-One
-- ✅ Many-To-Many
-- ✅ Pagination
-- ✅ Sorting
-- ✅ MySQL
-- ✅ Hibernate
-- ✅ Swagger
-- ✅ Repository Pattern
-- ✅ Service Layer
-- ✅ Controller Layer
+✅ Spring Boot
+
+✅ Spring Security
+
+✅ JWT Authentication
+
+✅ BCrypt Password Encryption
+
+✅ REST API
+
+✅ CRUD Operations
+
+✅ JPA Relationships
+
+✅ One-To-One
+
+✅ One-To-Many
+
+✅ Many-To-One
+
+✅ Many-To-Many
+
+✅ DTO Pattern
+
+✅ Generic API Response
+
+✅ Pagination
+
+✅ Sorting
+
+✅ Enum Mapping
+
+✅ Repository Pattern
+
+✅ Service Layer
+
+✅ Controller Layer
+
+✅ MySQL
+
+✅ Hibernate
+
+✅ Swagger Documentation
 
 ---
 
 # 🚀 Future Enhancements
 
-⭐ Refresh Token
+- Refresh Token
 
-⭐ Role-Based Authorization
+- Role-Based Authorization
 
-⭐ Email Verification
+- Email Verification
 
-⭐ Forgot Password
+- Forgot Password
 
-⭐ Docker
+- Docker
 
-⭐ Unit Testing
+- Unit Testing
 
-⭐ Logging
+- OAuth2 Login
 
-⭐ Global Exception Handling
+- Single Sign-On (SSO)
 
-⭐ CI/CD Pipeline
-
-⭐ Spring Cloud
-
-⭐ Microservices
-
-⭐ Kubernetes
-
----
-
-# 📊 Project Highlights
-
-🔥 Enterprise-Level Spring Boot Project
-
-🔥 Layered Architecture
-
-🔥 RESTful APIs
-
-🔥 DTO Pattern
-
-🔥 JWT Authentication
-
-🔥 Spring Security
-
-🔥 JPA Relationships
-
-🔥 Pagination & Sorting
-
-🔥 Swagger Integration
-
-🔥 Clean Code
-
-🔥 Best Practices
-
----
-
-# 🤝 Connect With Me
-
-### 👨‍💻 C. Balamurugan
-
-💻 Java Backend Developer
-
-🌱 Spring Boot Developer
-
-📚 Passionate About Learning New Technologies
-
-⭐ GitHub: https://github.com/Baladev01
+- Spring Boot Actuator
 
 ---
 
 <div align="center">
 
-# 🌟 Thank You For Visiting 🌟
+# 👨‍💻 Author
 
-### ⭐ If you like this project, please give it a Star ⭐
+## **C. Balamurugan**
 
-### 🚀 Happy Coding 🚀
+### 🌟 Java Backend Developer
 
-❤️ Made with Java & Spring Boot ❤️
+⭐ If you like this project, don't forget to **Star** the repository.
+
+**Happy Coding 🚀**
 
 </div>
-````      more more more atrractive colourfull design kudu
