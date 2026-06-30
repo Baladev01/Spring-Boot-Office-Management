@@ -1,170 +1,485 @@
-# Office Management System
+````markdown
+# 🚀 Office Management System
 
-## 📌 Project Overview
+<div align="center">
 
-The Office Management System is a Spring Boot REST API project developed to manage employees, departments, projects, and ID cards in an organization. This project demonstrates CRUD operations, JPA relationships, DTOs, pagination, sorting, enums, and Swagger API documentation.
+# 🏢 Office Management System
+
+### 🌟 Enterprise-Level Spring Boot REST API Project
+
+<img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java" />
+<img src="https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=for-the-badge&logo=springboot" />
+<img src="https://img.shields.io/badge/Spring%20Security-6.x-success?style=for-the-badge&logo=springsecurity" />
+<img src="https://img.shields.io/badge/JWT-Authentication-blue?style=for-the-badge" />
+<img src="https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql" />
+<img src="https://img.shields.io/badge/Hibernate-ORM-orange?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Maven-Build-red?style=for-the-badge&logo=apachemaven" />
+<img src="https://img.shields.io/badge/Swagger-API-green?style=for-the-badge&logo=swagger" />
+
+### ⭐ Secure • Fast • Scalable • RESTful ⭐
+
+</div>
 
 ---
 
-## 🚀 Technologies Used
+# 📖 About The Project
 
-* Java 17
-* Spring Boot
-* Spring Data JPA
-* Hibernate
-* MySQL
-* Maven
-* Lombok
-* Swagger (OpenAPI)
-* REST API
+The **Office Management System** is a complete **Spring Boot REST API** project designed to manage an organization's daily operations.
+
+This project demonstrates enterprise-level backend development concepts including:
+
+✨ Spring Boot
+
+✨ Spring Security
+
+✨ JWT Authentication
+
+✨ CRUD Operations
+
+✨ DTO Pattern
+
+✨ JPA Relationships
+
+✨ Pagination
+
+✨ Sorting
+
+✨ Swagger Documentation
+
+✨ MySQL Integration
 
 ---
 
-## 📂 Project Structure
+# ✨ Key Features
 
-```
-src/main/java/com/office
+## 👨‍💼 Admin Module
+
+✅ Admin Registration
+
+✅ Admin Login
+
+✅ Secure Authentication
+
+---
+
+## 👨‍💻 Employee Module
+
+✅ Add Employee
+
+✅ Update Employee
+
+✅ Delete Employee
+
+✅ View Employee
+
+✅ Employee Status
+
+---
+
+## 🏢 Department Module
+
+✅ Add Department
+
+✅ Update Department
+
+✅ Delete Department
+
+✅ View Department
+
+---
+
+## 📁 Project Module
+
+✅ Add Project
+
+✅ Update Project
+
+✅ Delete Project
+
+✅ Assign Employees
+
+---
+
+## 🪪 ID Card Module
+
+✅ Create ID Card
+
+✅ View ID Card
+
+✅ Delete ID Card
+
+---
+
+## 🔐 Security Module
+
+✅ Spring Security
+
+✅ JWT Authentication
+
+✅ Protected APIs
+
+✅ Password Encryption
+
+✅ Authentication & Authorization
+
+---
+
+# 🛠️ Technologies Used
+
+| Technology | Description |
+|------------|-------------|
+| ☕ Java 17 | Programming Language |
+| 🌱 Spring Boot | Backend Framework |
+| 🔐 Spring Security | Authentication |
+| 🎫 JWT | Token Authentication |
+| 🗄 MySQL | Database |
+| 🛢 Hibernate | ORM |
+| 📦 Spring Data JPA | Data Access |
+| 📄 Swagger | API Documentation |
+| 📚 Lombok | Boilerplate Reduction |
+| 🔨 Maven | Dependency Management |
+
+---
+
+# 📂 Project Structure
+
+```text
+src
+│
+├── config
 │
 ├── controller
-├── dto
-├── entity
-├── enums
-├── repository
+│
 ├── service
+│
+├── repository
+│
+├── entity
+│
+├── dto
+│
+├── enums
+│
+├── util
+│
+├── filter
+│
 └── OfficeApplication.java
 ```
 
 ---
 
-## 📚 Features
+# 🗄 Database Tables
 
-* Employee Management
-* Department Management
-* Project Management
-* ID Card Management
-* CRUD Operations
-* DTO (Request & Response)
-* Pagination
-* Sorting
-* Swagger Documentation
-* Enum Mapping
-* JPA Relationships
+```
+📦 ADMIN
 
----
+📦 DEPARTMENT
 
-## 🗄 Database Tables
+📦 EMPLOYEE
 
-* department
-* employee
-* project
-* employee_project
-* id_card
+📦 PROJECT
+
+📦 EMPLOYEE_PROJECT
+
+📦 ID_CARD
+```
 
 ---
 
-## 🔗 JPA Relationships
+# 🔗 JPA Relationships
 
-### One-to-Many
+## 🔵 One To Many
 
-* One Department can have many Employees.
-
-### Many-to-One
-
-* Many Employees belong to one Department.
-
-### One-to-One
-
-* One Employee has one ID Card.
-
-### Many-to-Many
-
-* Many Employees can work on many Projects.
+```
+Department
+      │
+      │
+      ▼
+Employee
+Employee
+Employee
+```
 
 ---
 
-## 📌 Enum
+## 🟢 Many To One
 
-### Employee Status
+```
+Employee
 
-* ACTIVE
-* INACTIVE
-* ON_LEAVE
+↓
 
-### Project Status
-
-* NOT_STARTED
-* IN_PROGRESS
-* COMPLETED
+Department
+```
 
 ---
 
-## 📌 REST APIs
+## 🟣 One To One
 
-### Department APIs
+```
+Employee
 
-* POST /department/save
-* GET /department/all
-* GET /department/{id}
-* PUT /department/{id}
-* DELETE /department/{id}
+↔
 
-### Employee APIs
-
-* POST /employee/save
-* GET /employee/all
-* GET /employee/{id}
-* PUT /employee/{id}
-* DELETE /employee/{id}
-* GET /employee/page
-* GET /employee/sort
-* GET /employee/sortdesc
-
-### Project APIs
-
-* POST /project/save
-* GET /project/all
-* GET /project/{id}
-* PUT /project/{id}
-* DELETE /project/{id}
-
-### ID Card APIs
-
-* POST /idcard/save
-* GET /idcard/all
-* GET /idcard/{id}
-* DELETE /idcard/{id}
+ID Card
+```
 
 ---
 
-## 📖 DTO Usage
+## 🟠 Many To Many
 
-### Request DTO
+```
+Employee
 
-Used to receive client request data.
+↕
+Project
 
-Examples:
+Employee
 
-* EmployeeRequestDTO
-* DepartmentRequestDTO
-* ProjectRequestDTO
-* IDCardRequestDTO
-
-### Response DTO
-
-Used to send customized responses to the client.
-
-Examples:
-
-* EmployeeResponseDTO
-* DepartmentResponseDTO
-* ProjectResponseDTO
-* IDCardResponseDTO
+↕
+Project
+```
 
 ---
 
-## 📄 API Documentation
+# 📌 Employee Status
 
-Swagger UI is available after running the project.
+```
+🟢 ACTIVE
+
+🔴 INACTIVE
+
+🟡 ON_LEAVE
+```
+
+---
+
+# 📌 Project Status
+
+```
+⚪ NOT_STARTED
+
+🟡 IN_PROGRESS
+
+🟢 COMPLETED
+```
+
+---
+
+# 🔐 JWT Authentication Flow
+
+```text
+                 USER
+                   │
+                   ▼
+       Username + Password
+                   │
+                   ▼
+          Login REST API
+                   │
+                   ▼
+         Spring Security
+                   │
+                   ▼
+         Authenticate User
+                   │
+                   ▼
+         Generate JWT Token
+                   │
+                   ▼
+      Client Stores JWT Token
+                   │
+                   ▼
+ Authorization : Bearer <JWT>
+                   │
+                   ▼
+             JwtFilter
+                   │
+                   ▼
+            Extract Token
+                   │
+                   ▼
+              JwtUtil
+                   │
+                   ▼
+          Verify Signature
+                   │
+                   ▼
+         Extract Username
+                   │
+                   ▼
+     UserDetailsService
+                   │
+                   ▼
+         Validate Token
+                   │
+                   ▼
+SecurityContextHolder
+                   │
+                   ▼
+          Protected APIs
+```
+
+---
+
+# 🎫 JWT Structure
+
+```
+Header
+
+↓
+
+Payload
+
+↓
+
+Signature
+```
+
+Example
+
+```
+eyJhbGciOiJIUzI1NiJ9
+
+.
+
+eyJzdWIiOiJiYWxhIn0
+
+.
+
+Signature
+```
+
+---
+
+# 🌐 REST APIs
+
+# 👨 Admin
+
+```
+POST   /admin/signup
+
+POST   /admin/login
+```
+
+---
+
+# 🏢 Department
+
+```
+POST
+
+GET
+
+PUT
+
+DELETE
+```
+
+---
+
+# 👨‍💻 Employee
+
+```
+POST
+
+GET
+
+PUT
+
+DELETE
+
+Pagination
+
+Sorting
+```
+
+---
+
+# 📁 Project
+
+```
+POST
+
+GET
+
+PUT
+
+DELETE
+```
+
+---
+
+# 🪪 ID Card
+
+```
+POST
+
+GET
+
+DELETE
+```
+
+---
+
+# 📖 DTO Pattern
+
+## 📥 Request DTO
+
+```
+Client
+
+↓
+
+Request DTO
+
+↓
+
+Entity
+```
+
+---
+
+## 📤 Response DTO
+
+```
+Entity
+
+↓
+
+Response DTO
+
+↓
+
+Client
+```
+
+---
+
+# 🔐 Security Features
+
+✅ Spring Security
+
+✅ JWT Authentication
+
+✅ Stateless Authentication
+
+✅ Authentication
+
+✅ Authorization
+
+✅ Protected APIs
+
+✅ Password Encryption
+
+✅ UserDetailsService
+
+✅ SecurityContextHolder
+
+---
+
+# 📄 Swagger
 
 ```
 http://localhost:8080/swagger-ui/index.html
@@ -172,41 +487,143 @@ http://localhost:8080/swagger-ui/index.html
 
 ---
 
-## ▶️ How to Run
+# ▶️ How To Run
 
-1. Clone the repository.
-2. Create a MySQL database.
-3. Update database configuration in `application.properties`.
-4. Run the Spring Boot application.
-5. Open Swagger UI.
-6. Test the REST APIs.
+```text
+1️⃣ Clone Repository
 
----
+2️⃣ Open Project
 
-## 🎯 Learning Concepts
+3️⃣ Create MySQL Database
 
-This project covers:
+4️⃣ Configure application.properties
 
-* Spring Boot
-* REST APIs
-* CRUD Operations
-* DTO Pattern
-* Entity Mapping
-* JPA Relationships
-* Enum Mapping
-* Pagination
-* Sorting
-* Lombok
-* Repository Pattern
-* Service Layer
-* Controller Layer
-* MySQL Integration
-* Swagger Documentation
+5️⃣ Run Spring Boot
+
+6️⃣ Open Swagger
+
+7️⃣ Test APIs
+```
 
 ---
 
-## 👨‍💻 Author
+# 🎯 Learning Concepts
 
-**C. Balamurugan**
+✅ Java
 
-Spring Boot | Java Backend Developer
+✅ Spring Boot
+
+✅ Spring Security
+
+✅ JWT Authentication
+
+✅ REST API
+
+✅ CRUD Operations
+
+✅ DTO Pattern
+
+✅ Entity Mapping
+
+✅ JPA Relationships
+
+✅ One-To-One
+
+✅ One-To-Many
+
+✅ Many-To-One
+
+✅ Many-To-Many
+
+✅ Pagination
+
+✅ Sorting
+
+✅ Swagger
+
+✅ MySQL
+
+✅ Hibernate
+
+✅ Repository Pattern
+
+✅ Service Layer
+
+✅ Controller Layer
+
+---
+
+# 🚀 Future Enhancements
+
+⭐ Refresh Token
+
+⭐ Role Based Authentication
+
+⭐ File Upload
+
+⭐ Email Verification
+
+⭐ Forgot Password
+
+⭐ Docker
+
+⭐ Unit Testing
+
+⭐ Logging
+
+⭐ Global Exception Handling
+
+⭐ CI/CD
+
+⭐ Microservices
+
+⭐ Spring Cloud
+
+⭐ Kubernetes
+
+---
+
+# 📊 Project Highlights
+
+🔥 Enterprise Level REST API
+
+🔥 Clean Architecture
+
+🔥 Layered Architecture
+
+🔥 DTO Pattern
+
+🔥 Secure Authentication
+
+🔥 Database Relationships
+
+🔥 API Documentation
+
+🔥 Best Coding Practices
+
+---
+
+# 🤝 Connect With Me
+
+👨‍💻 **C. Balamurugan**
+
+🌟 Java Backend Developer
+
+💻 Spring Boot Enthusiast
+
+📚 Always Learning New Technologies
+
+---
+
+<div align="center">
+
+# ⭐ If you like this project...
+
+## 🌟 Please Star this Repository 🌟
+
+### ❤️ Thank You For Visiting ❤️
+
+🚀 Happy Coding 🚀
+
+</div>
+````
